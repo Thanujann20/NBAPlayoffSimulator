@@ -1,17 +1,18 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[153]:
+# In[2]:
 
 
 import pandas as pd
 import regex as re
 
-stats_folder_path = "./Stats/"
-east_st = pd.read_csv(stats_folder_path + "standings_e.csv")
-west_st = pd.read_csv(stats_folder_path + "standings_w.csv")
-east_so = pd.read_csv(stats_folder_path + "sos_e.csv")
-west_so = pd.read_csv(stats_folder_path + "sos_w.csv")
+data_folder_path = '/Users/thanujann/Documents/code/NBApredictor/Data/' 
+
+east_st = pd.read_csv(data_folder_path + "standings_e.csv")
+west_st = pd.read_csv(data_folder_path + "standings_w.csv")
+east_so = pd.read_csv(data_folder_path + "sos_e.csv")
+west_so = pd.read_csv(data_folder_path + "sos_w.csv")
 
 east_st["Team"] = east_st["Team"].apply(lambda x: re.sub(r"\s*\(\d+\)", "", x).strip())
 east_merged = east_st.merge(east_so, on="Team", how='outer')
@@ -32,8 +33,8 @@ sorted_west = west_merged.sort_values(by='Projected wins', ascending=False)
 sorted_east['Seed'] = range(1, 16)
 sorted_west['Seed'] = range(1, 16)
 
-sorted_east.to_csv(stats_folder_path + "updated_standings_e.csv", index=False)
-sorted_west.to_csv(stats_folder_path + "updated_standings_w.csv", index=False)
+sorted_east.to_csv(data_folder_path + "updated_standings_e.csv", index=False)
+sorted_west.to_csv(data_folder_path + "updated_standings_w.csv", index=False)
 
 
 # In[ ]:

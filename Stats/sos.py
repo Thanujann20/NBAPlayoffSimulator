@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[8]:
 
 
 import requests
@@ -31,8 +31,10 @@ east_cleaned = east_cleaned.dropna()
 west_cleaned.columns = ['Team', 'SOS']
 west_cleaned = west_cleaned.dropna()
 
-east_cleaned.to_csv('sos_e.csv', index=False)
-west_cleaned.to_csv('sos_w.csv', index=False)
+data_folder_path = '/Users/thanujann/Documents/code/NBApredictor/Data/' 
+
+east_cleaned.to_csv(data_folder_path + 'sos_e.csv', index=False)
+west_cleaned.to_csv(data_folder_path + 'sos_w.csv', index=False)
 
 
 

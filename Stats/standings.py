@@ -31,8 +31,10 @@ cleaned_w = west_df.loc[:, :'PA/G']
 cleaned_e.rename(columns={'Eastern Conference': 'Team'}, inplace=True)
 cleaned_w.rename(columns={'Western Conference': 'Team'}, inplace=True)
 
-cleaned_e.to_csv('standings_e.csv', index=False)
-cleaned_w.to_csv('standings_w.csv', index=False)
+data_folder_path = '/Users/thanujann/Documents/code/NBApredictor/Data/'
+
+cleaned_e.to_csv(data_folder_path + 'standings_e.csv', index=False)
+cleaned_w.to_csv(data_folder_path + 'standings_w.csv', index=False)
 
 
 # In[ ]:
