@@ -3,10 +3,11 @@
 
 # In[127]:
 
-
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import pandas as pd
-import playIn
-from playIn import get_team_stats, simulate_game
+from Simulation.playIn import get_team_stats, simulate_game
 
 
 def simulate_bracket(east, west, team_stats, opp_stats):

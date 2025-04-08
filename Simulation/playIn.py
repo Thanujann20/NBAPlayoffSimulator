@@ -4,7 +4,7 @@
 # In[269]:
 
 
-import pandas as pd
+import pandas as pd # type: ignore
 import random
 
 def get_play_in_teams(df):
@@ -62,6 +62,9 @@ def simulate_bracket(east_playIn, west_playIn, team_stats, opp_stats):
     west_playoffs = (west_st[['Team', 'Seed']]).loc[0:7]
     west_playoffs.loc[6, 'Team'] = west_seven_seed
     west_playoffs.loc[7, 'Team'] = west_eight_seed
+
+    east_playoffs = east_playoffs[['Team', 'Seed']].to_dict(orient='records')  
+    west_playoffs = west_playoffs[['Team', 'Seed']].to_dict(orient='records')
 
     return east_playoffs, west_playoffs
     
@@ -121,8 +124,11 @@ west_playIn = get_play_in_teams(west_st)
 
 east, west = simulate_bracket(east_playIn, west_playIn, team_stats, opp_stats)
 
-east.to_csv(data_folder_path + 'east_playoffs.csv', index=False)
-west.to_csv(data_folder_path + 'west_playoffs.csv', index=False)
+east_df = pd.DataFrame(east)  
+west_df = pd.DataFrame(west) 
+
+east_df.to_csv(data_folder_path + 'east_playoffs.csv', index=False)
+west_df.to_csv(data_folder_path + 'west_playoffs.csv', index=False)
 
 
 # In[ ]:

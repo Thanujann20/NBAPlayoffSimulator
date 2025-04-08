@@ -1,0 +1,28 @@
+body {
+    height: 100vh;
+    background-image: url("/static/images/nba.jpg");
+    background-size: cover;
+    background-position: center; 
+    
+}
+
+.container {
+    padding: 20px;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: rgb(57, 130, 203);
+}
+
+p {
+    margin-top: 50px;
+    padding: 15px;
+}
+
+footer {
+    bottom: 0;
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    background-color: #121212; 
+}

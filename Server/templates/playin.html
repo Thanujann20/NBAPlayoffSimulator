@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayIn</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="../static/playin.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">Home </a></li>
+            <li><a href="/playin">PlayIn</a></li>
+            <li><a href="/playoffs">PlayOffs</a></li>
+        </ul>
+    </nav>
+    <h1>Projected Play In Teams:</h1>
+    <div class="bracket">
+        <div class="round round-1">
+          <div class="matchup">
+            <div class="team">Team A</div>
+            <div class="team">Team B</div>
+          </div>
+          <div class="matchup">
+            <div class="team">Team C</div>
+            <div class="team">Team D</div>
+          </div>
+        </div>
+        <div class="round round-2">
+          <div class="matchup">
+            <div class="team">Winner 1</div>
+            <div class="team">Winner 2</div>
+          </div>
+        </div>
+      </div>
+    <h2>East Play-In Teams</h2>
+    <ul>
+    {% for team in east_playIn %}
+        <li>{{ team.Team }} (Seed {{ team.Seed }})</li>
+    {% endfor %}
+    </ul>
+
+    <h2>West Play-In Teams</h2>
+    <ul>
+    {% for team in west_playIn %}
+        <li>{{ team.Team }} (Seed {{ team.Seed }})</li>
+    {% endfor %}
+    </ul>
+    <footer></footer>
+</body>
+</html>
